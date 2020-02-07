@@ -1,0 +1,70 @@
+var employees = [];
+var departments = [];
+var empCount = 0;
+var error = 0;
+var fs = require("fs");
+
+function initialize(){
+
+employees = fs.readFileSync("./data/employees.json", 'utf8', function(err, data){
+    if(err){
+        error = 1;
+    }
+    empCount = employees.length;      
+    employees = JSON.parse(data);
+
+});
+
+
+departments = fs.readFileSync("./data/department.json", 'utf8', function(err, data){
+    if(err){
+        error = 1;
+    }
+    departments = JSON.parse(data);
+
+});
+}
+
+function check() {
+return new Promise(function(resolve,reject){
+
+    if (error === 0){
+        resolve("Success");
+
+    }
+    else if(error === 1){
+       reject("unable to read file");
+    }
+})     
+};
+
+var getAllEmployees = function(){
+
+return check().then(function(x){
+console.log(x);
+console.log(employees);
+return employees;
+
+}).catch(function(x){
+console.log("No results returned");
+});
+}
+    module.exports.getAllEmployees = getAllEmployees;
+
+
+
+
+
+people: [
+         {firstname:"Mark",secondname:"Suker"},
+         {firstname:"De",secondname:"Cap"}
+       ],
+
+ representatives=fetch("./data/rep.json").then(response=>  
+        { representatives =response.json();
+        }).then(data=>{
+            console.log(data);
+        }).catch(eror=>{
+            error = 1;
+            console.log(error);
+        });

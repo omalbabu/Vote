@@ -1,0 +1,35 @@
+
+ 
+ {{!-- {{calc 10}}
+{{#each data}}
+{{!-- {{this.firstName}}{{this.lastName}}
+{{/each}}  --}}
+
+
+
+
+
+    
+<div class="alert alert-primary" role="alert">
+ {{title}}
+</div>
+
+<div class="row" >
+    <div class="col-sm-4 container-md-2 ">
+     	 
+    </div>
+    <div class="col-sm-4 container-md-6">
+      <form>
+  {{#list data}}
+{{firstName}}{{lastName}}
+{{/list}}
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    </div>
+    <div class="col-sm-4 container-md-2">
+      	
+    </div>
+ </div>
+
+
+
