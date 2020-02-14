@@ -4,17 +4,19 @@
       <h1 class="text-center mb-3">
         <i class="fas fa-user-plus"></i> Register
       </h1>
+   
+            {{> messages err=errors }}
       {{!-- <% include ./partials/messages %> --}}
       <form action="/users/register" method="POST">
         <div class="form-group">
           <label for="name">Name</label>
           <input
-            type="name"
-            id="name"
-            name="name"
+            type="userName"
+            id="userName"
+            name="userName"
             class="form-control"
             placeholder="Enter Name"
-            value='{{name}}'
+            value='{{userName}}'
           />
           {{!-- value="<%= typeof name != 'undefined' ? name : '' %>" --}}
         </div>
