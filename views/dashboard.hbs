@@ -1,1 +1,111 @@
-<h1>Dashboard</h1>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="#">Dashboard</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    {{!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> --}}
+     
+        <a href="/users/logout" tabindex="-1" aria-disabled="true">Log Out</a>
+     
+  </div>
+</nav>
+<div class="container">
+   <table class="table table-hover">
+                <thead>
+                  <tr>
+                      
+                    <th scope="col">Name</th>
+                     <th scope="col">Date</th>
+                    <th scope="col">Brealfast</th>
+                    <th scope="col">Lunch</th>
+                    <th scope="col">Dinner</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                                  
+                  <tr class="table-light">
+                       <form action="/users/Booking" method="POST">
+                       
+                    <th scope="row">Jobby Joseph</th>
+                    <td>
+                       <div class="control-group">
+                        {{!-- <label class="control-label">Date Picking</label> --}}
+                        <div class="controls input-append date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input size="16" type="text" value="" readonly>
+                        <span class="add-on"><i class="icon-remove"></i></span>
+					    <span class="add-on"><i class="icon-th"></i></span>
+                        </div>
+				        <input type="hidden" id="dtp_input2" value="" /><br/>
+                     </div>
+                    </td>
+                    <td>
+                        <label class="form-check-label">
+                        <input class="form-check-input" id="chkBreak" name="Breakfast" type="checkbox" >Breakfast</label>
+                    </td>
+                    <td>
+                        <label class="form-check-label">
+                        <input class="form-check-input" id="chkLun" type="checkbox" name="Lunch">Lunch</label>
+                    </td>
+                    <td>
+                        <label class="form-check-label">
+                        <input id="Dinner" name="Dinner" class="form-check-input"  type="checkbox" value="" checked="">Dinner</label>
+                    </td>
+                     <td>
+                 
+                   
+                    <td>
+                          <button type="submit" class="btn btn-secondary btn-secondary">Register </button>
+                    </td>
+                   
+                    </form>
+                  </tr>
+                  
+                  
+                 
+                 
+                </tbody>
+              </table>
+
+
+<div class="d-flex justify-content-center ">
+
+<div class="p-2 bd-highlight">1</div>
+<div class="p-2 bd-highlight">2</div>
+<div class="p-2 bd-highlight">3</div>
+
+</div>
+</div>
+<h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Welcome {{user.name }}</p>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<script type="text/javascript">
+   
+	$('.form_date').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+	
+</script>

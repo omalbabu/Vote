@@ -9,7 +9,7 @@ const passport=require('passport');
 
 app.set('./views');
 app.use('/stylesheets/fontawesome', express.static(__dirname + '/node_modules/@fortawesome/fontawesome-free/'));
-
+app.use('/scripts', express.static(__dirname + '/css/'));
 require('./config/passport')(passport);
 //DataBase 
 connectDB();

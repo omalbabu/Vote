@@ -72,12 +72,23 @@ router.post('/register',(req,res)=>{
 
 router.post('/login',(req,res,next)=>
 {
-passport.authenticate('local',
-{
-  successRedirect:'dashboard',
+passport.authenticate('local',{  
+  successRedirect:'/dashboard',
   failureRedirect:'/users/login',
   failureFlash:true
-})(req,res,next);
+    })(req,res,next);
+});
+
+router.get('/logout',(req,res)=>
+{
+req.logOut();
+req.flash('success_msg','You are logged out');
+res.redirect('/users/login');
+});
+
+router.post('/Booking',(req,res)=>{
+  const {Lunch,Breakfast}=req.body;
+  console.log(Lunch,Breakfast);
 });
 module.exports=router;
 
