@@ -65,13 +65,13 @@
                     </td>
                     <td>
                         <label class="form-check-label">
-                        <input id="Dinner" name="Dinner" class="form-check-input"  type="checkbox" value="" checked="">Dinner</label>
+                        <input id="ChkDine" name="ChkDinner" class="form-check-input"  type="checkbox" value="" checked="">Dinner</label>
                     </td>
                      <td>
                  
                    
                     <td>
-                          <button type="submit" class="btn btn-secondary btn-secondary">Register </button>
+                          <button type="button" class="btn btn-secondary btn-secondary" onclick="UpdateOrder()">Register </button>
                     </td>
                    
                     </form>
@@ -97,15 +97,23 @@
 <a href="/users/logout" class="btn btn-secondary">Logout</a>
 <script type="text/javascript">
    
-	$('.form_date').datetimepicker({
-        language:  'fr',
-        weekStart: 1,
-        todayBtn:  1,
-		autoclose: 1,
-		todayHighlight: 1,
-		startView: 2,
-		minView: 2,
-		forceParse: 0
-    });
+	
+    function UpdateOrder()
+    {
+
+        const morningOrder=document.getElementById('chkBreak').checked;
+        const NoonOrder=document.getElementById('chkLun').checked;
+        const eveningOrder=document.getElementById('ChkDine').checked;
+        const data={morningOrder,NoonOrder,eveningOrder};
+        console.log(data);
+        const options={
+        method:'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+    };
+    fetch('/dashboard',options);
+     }
+   
+
 	
 </script>

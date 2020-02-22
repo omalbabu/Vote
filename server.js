@@ -5,7 +5,7 @@ var connectDB=require('./config/db');
 const flash=require('connect-flash');
 const session=require('express-session');
 const passport=require('passport');
-
+app.use(express.json({limit:'1mb'}));
 
 app.set('./views');
 app.use('/stylesheets/fontawesome', express.static(__dirname + '/node_modules/@fortawesome/fontawesome-free/'));
@@ -60,6 +60,7 @@ app.use((req,res,next)=>{
 //Routes
 app.use('/',require('./routes/index'));
 app.use('/users',require('./routes/user'));
+//app.use('/dashboard',require('./routes/dashboard'));
 app.use('/Votes',require('./routes/votes'));
 
 const PORT=process.PORT||8080;

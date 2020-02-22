@@ -86,9 +86,9 @@ req.flash('success_msg','You are logged out');
 res.redirect('/users/login');
 });
 
-router.post('/Booking',(req,res)=>{
-  const {Lunch,Breakfast}=req.body;
-  console.log(Lunch,Breakfast);
-});
+// router.post('/dashboard',(req,res)=>{
+//   console.log('body request');
+//   const {morningOrder,NoonOrder,eveningOrder}=req.body;
+//   console.log(morningOrder,NoonOrder,eveningOrder);
+// });
 module.exports=router;
-
