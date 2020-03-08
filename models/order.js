@@ -1,7 +1,9 @@
 const mongoose=require('mongoose');
+const user=require('../models/user');
+const Schema = mongoose.Schema;
 const orderScheme=new mongoose.Schema({
-    userName:{
-        type:String,
+    user:{ type:Schema.Types.ObjectId,
+        ref:'user',
         require:true
     },
     morningOrder:{
@@ -15,6 +17,9 @@ const orderScheme=new mongoose.Schema({
     afternoonOrder:{
         type:Boolean,
         default:true
+    },
+    date:{
+        type:Date
     }
 });
 const Order=mongoose.model('Order',orderScheme);
